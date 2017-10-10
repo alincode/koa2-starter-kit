@@ -1,0 +1,5 @@
+--timeout 5000
+--recursive test/server/bootstrap.js
+--require babel-core/register
+--require babel-polyfill
+--reporter spec

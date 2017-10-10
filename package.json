@@ -1,0 +1,53 @@
+{
+  "name": "koa-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node server/app.js",
+    "prestart": "npm install",
+    "dev": "DEBUG=sequelize:*,bc:*,koa:* NODE_ENV=development babel-node server/app.js",
+    "watch": "nodemon --exec npm run dev",
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --opts ./test/server/mocha.opts ./test/server/**/*.spec.js",
+    "dev-pm2": "pm2 restart server/app.js",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "Koa2"
+  ],
+  "author": "alincode <alincode@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "config": "^1.26.2",
+    "debug": "^3.1.0",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-logger": "^3.1.0",
+    "koa-response-time": "^2.0.0",
+    "koa-router": "^7.2.1",
+    "koa2-cors": "^2.0.3",
+    "lodash": "^4.17.4",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.13.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "mocha": "^3.5.3",
+    "nodemon": "^1.12.1",
+    "sinon": "^4.0.1",
+    "supertest": "^3.0.0",
+    "supertest-as-promised": "^4.0.2"
+  },
+  "engines": {
+    "node": ">= 7.6.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "port": 3000,
+    "domain": "localhost",
+    "connection": {
+        "database": "koa2-starter-kit",
+        "username": "root",
+        "password": "root",
+        "host": "localhost",
+        "port": "3306",
+        "dialect": "mysql",
+        "force": false
+    }
+}
