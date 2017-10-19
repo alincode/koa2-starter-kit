@@ -25,7 +25,9 @@
     "modelInstance": true,
     "sinon": true,
     "app": true,
-    "server": true
+    "config": true,
+    "server": true,
+    "userService": true
   },
   "rules": {
     "indent": [

@@ -1,5 +1,5 @@
 import Config from './config';
-import Middleware from './server/middleware/index';
+import Middleware from './server/middlewares/index';
 import Models from './server/boot/models';
 
 export default function(app){

@@ -7,8 +7,8 @@
     "start": "babel-node server/app.js",
     "prestart": "npm install",
     "dev": "DEBUG=sequelize:*,bc:*,koa:* NODE_ENV=development babel-node server/app.js",
-    "watch": "nodemon --exec npm run dev",
-    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --opts ./test/server/mocha.opts ./test/server/**/*.spec.js",
+    "watch": "DEBUG=bc:*,koa:* nodemon --exec npm run dev",
+    "test": "DEBUG=bc:*,koa:* NODE_ENV=test mocha --compilers js:babel-core/register --opts ./test/server/mocha.opts ./test/server/**/*.spec.js",
     "dev-pm2": "pm2 restart server/app.js",
     "lint": "eslint ."
   },
@@ -26,6 +26,7 @@
     "koa-logger": "^3.1.0",
     "koa-response-time": "^2.0.0",
     "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1",
     "koa2-cors": "^2.0.3",
     "lodash": "^4.17.4",
     "mysql2": "^1.4.2",
