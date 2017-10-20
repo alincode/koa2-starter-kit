@@ -11,4 +11,24 @@ export default class User {
         let users = await models.User.findAll();
         return users;
     }
+
+    async auth(username, password) {
+        let options = {
+            where: {
+                username, password
+            }
+        };
+        let user = await models.User.findOne(options);
+        return user ? true : false;
+    }
+
+    async findByUsername(username) {
+        let options = {
+            where: {
+                username
+            }
+        };
+        let user = await models.User.findOne(options);
+        return user;
+    }
 }

@@ -1,4 +1,5 @@
 const { pickFields, validateFields } = require('../utils/fields');
+const jwt = require('jsonwebtoken');
 var debug = require('debug')('bc:controllers:user');
 
 export default class User {
@@ -94,5 +95,9 @@ export default class User {
             ctx.body = error;
             ctx.status = error.status;
         }
+    }
+
+    async logout(ctx) {
+
     }
 }

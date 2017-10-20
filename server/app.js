@@ -16,6 +16,14 @@ global.server = app.listen(config.port, async () => {
     if (process.env.NODE_ENV !== 'test'){
         await modelInstance.resetDb();
     }
+
+    let values = {
+        username: 'alincode',
+        password: 'alincode',
+        email: 'alincode@gmail.com'
+    };
+    await models.User.create(values);
+
     const namespace = 'bc:app';
     debug(namespace)(`listening on http://${config.domain}:${config.port}`);
 });

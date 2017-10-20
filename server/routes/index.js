@@ -1,7 +1,8 @@
 import Router from 'koa-router';
-import UserController from '../controllers/user';
 import debug from 'debug';
+import UserController from '../controllers/user';
 const namespace = 'bc:routes';
+import { userAuthHandler } from '../auth/user';
 
 export default class Routes {
 
@@ -11,13 +12,15 @@ export default class Routes {
         this.userController = new UserController();
     }
 
-    init(){
+    initialize(){
         debug(namespace)('apiRouterInit');
         var apiGroup = new Router();
         let api = new Router();
-
+        api.post('/auth/user/signup', this.userController['store']);
+        // api.post('/auth/user/login', this.userController['login']);
+        api.post('/auth/user/login', userAuthHandler);
+        api.get('/auth/user/logout', this.userController['logout']);
         api.get('/users', this.userController['index']);
-        api.post('/users', this.userController['store']);
         api.get('/users/:userId', this.userController['show']);
         api.put('/users/:userId', this.userController['update']);
 

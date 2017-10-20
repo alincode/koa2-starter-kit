@@ -7,6 +7,7 @@ import koaStatic from 'koa-static';
 import path from 'path';
 import Routes from '../routes/index';
 import debug from 'debug';
+import jwt from 'koa-jwt';
 const namespace = 'bc:middlewares';
 
 export default class Middleware {
@@ -24,7 +25,10 @@ export default class Middleware {
         app.use(cors());
         app.use(bodyparser());
 
+        let params = { path: ['/api/auth/user/login'] };
+        app.use(jwt({ secret: 'secret', debug: true }).unless(params));
+
         let routes = new Routes(app);
-        routes.init();
+        routes.initialize();
     }
 }

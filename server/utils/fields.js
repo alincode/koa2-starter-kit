@@ -3,11 +3,12 @@ import _ from 'lodash';
 var debug = require('debug')('bc:utils:fields');
 
 export function pickFields(data, arr) {
-    if (!(arr instanceof Array)) throw new MsgResponse.Err(config.err.DATA_MUST_BE_ARRAY);
+    if (!(arr instanceof Array))
+        throw new MsgResponse(config.err.DATA_MUST_BE_ARRAY);
 
     if (typeof data !== 'object') {
         debug('BAD options %s %j', typeof data, data);
-        throw new MsgResponse.Err(config.err.DATA_MUST_BE_OBJECT);
+        throw new MsgResponse(config.err.DATA_MUST_BE_OBJECT);
     }
 
     var options = {};
