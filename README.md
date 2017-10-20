@@ -5,6 +5,7 @@ npm start
 npm run dev
 npm run dev-pm2
 npm run lint
+npm run watch
 ```
 
 ### env
@@ -18,7 +19,7 @@ npm run lint
 * [Koa2](http://koajs.com/) - next generation web framework for node.js
 * [lodash](https://lodash.com/) - utility library
 * [eslint](https://eslint.org/) - linter tool
-
+* [JSON Web Tokens - jwt.io](https://jwt.io/)
 
 ```
 // "build": "babel ./server -d ./lib",
