@@ -24,7 +24,7 @@
       ],
       "ref": "origin/master",
       "repo": "git@github.com:alincode/koa2-starter-kit.git",
-      "path": "/home/deploy/code/koa",
+      "path": "/home/deploy/code/koa2-starter-kit-staging",
       "post-deploy": "npm i && pm2 startOrRestart ./bin/ecosystem_staging.json --env staging",
       "env": {
         "NODE_ENV": "staging",
