@@ -2,26 +2,6 @@ import MsgResponse from './MsgResponse';
 import _ from 'lodash';
 var debug = require('debug')('bc:utils:fields');
 
-export function pickFields(data, arr) {
-    if (!(arr instanceof Array))
-        throw new MsgResponse(config.err.DATA_MUST_BE_ARRAY);
-
-    if (typeof data !== 'object') {
-        debug('BAD options %s %j', typeof data, data);
-        throw new MsgResponse(config.err.DATA_MUST_BE_OBJECT);
-    }
-
-    var options = {};
-    _.map(arr, function (item) {
-        if (data[item] !== undefined) {
-            options[item] = data[item];
-        }
-    });
-
-    debug('out put options %j', options);
-    return options;
-}
-
 export function validateFields(object, paths) {
     debug('欄位驗證： %j in %j', object, paths);
 

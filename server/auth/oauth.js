@@ -39,6 +39,7 @@ export const generateTokens = async (payload, secret, opts = {}) => {
         const accessToken = await signAsync(accessTokenPayload, secret, accessTokenOpts);
 
         // await redisSetexAsync(refreshTokenId, auth.refreshTokenTtl, payload.user.username);
+        debug('payload: %j', payload);
 
         return Promise.resolve({
             accessToken,

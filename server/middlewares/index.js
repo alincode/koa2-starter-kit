@@ -25,7 +25,7 @@ export default class Middleware {
         app.use(cors());
         app.use(bodyparser());
 
-        let params = { path: ['/api/auth/user/login'] };
+        let params = { path: ['/api/auth/user/login', '/api/auth/user/signup'] };
         app.use(jwt({ secret: 'secret', debug: true }).unless(params));
 
         let routes = new Routes(app);

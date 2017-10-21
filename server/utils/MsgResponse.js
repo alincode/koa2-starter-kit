@@ -12,7 +12,7 @@ export default class MsgResponse extends Error {
 
         err = err.split(' ');
 
-        this.code = err[0];
+        this.code = parseInt(err[0], 10);
         this.name = err[1];
         this.message = err[2];
         this.status = 400;

@@ -29,7 +29,11 @@ export const userAuthHandler = (ctx, next) => {
         debug('err: %j, user: %j, options: %j', err, user, options);
         try {
             if (user) {
-                const { accessToken, refreshToken } = await generateTokens({ user }, 'secret');
+                let payload = {
+                    sid: user.id,
+                    type: 'user'
+                };
+                const { accessToken, refreshToken } = await generateTokens(payload, 'secret');
                 ctx.body = {
                     accessToken,
                     refreshToken,

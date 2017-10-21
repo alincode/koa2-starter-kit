@@ -14,6 +14,12 @@ npm run watch
 * npm 5.3
 * mysql 5.6
 
+### pm2
+
+```
+pm2 start bin/ecosystem_staging.json
+```
+
 ### You should know...
 
 * [Koa2](http://koajs.com/) - next generation web framework for node.js

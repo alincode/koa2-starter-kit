@@ -17,11 +17,11 @@ export default class Routes {
         var apiGroup = new Router();
         let api = new Router();
         api.post('/auth/user/signup', this.userController['store']);
-        // api.post('/auth/user/login', this.userController['login']);
         api.post('/auth/user/login', userAuthHandler);
         api.get('/auth/user/logout', this.userController['logout']);
         api.get('/users', this.userController['index']);
-        api.get('/users/:userId', this.userController['show']);
+        api.get('/users/me', this.userController['show']);
+        // api.get('/users/:userId', this.userController['show']);
         api.put('/users/:userId', this.userController['update']);
 
         apiGroup.use('/api', api.routes(), api.allowedMethods());

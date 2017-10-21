@@ -1,4 +1,5 @@
-const { pickFields, validateFields } = require('../utils/fields');
+import _ from 'lodash';
+const { validateFields } = require('../utils/fields');
 const jwt = require('jsonwebtoken');
 var debug = require('debug')('bc:controllers:user');
 
@@ -18,24 +19,11 @@ export default class User {
 
     async show(ctx) {
         try {
-            let req = ctx.request;
-            let values = req.body;
-            let userId = ctx.params.userId;
-
-            values = {
-                userId: userId
-            };
-
-            values = pickFields(values, [
-                'userId'
-            ]);
-
-            validateFields(values, [
-                'userId'
-            ]);
-
+            let userId = ctx.state.user.sid;
             let user = await models.User.findById(userId);
-            ctx.body = { user };
+            user = user.dataValues;
+            user = _.omit(user, ['password']);
+            ctx.body = user;
         } catch (error) {
             ctx.body = error;
             ctx.status = error.status;
@@ -47,7 +35,7 @@ export default class User {
             let req = ctx.request;
             let values = req.body;
 
-            values = pickFields(values, [
+            values = _.pick(values, [
                 'username',
                 'email',
                 'password'
@@ -75,11 +63,12 @@ export default class User {
             let userId = ctx.params.userId;
             let values = req.body;
 
-            values = pickFields(values, [
+            values = _.pick(values, [
                 'username',
                 'email',
                 'password'
             ]);
+
             let options = {
                 where : {
                     id : userId

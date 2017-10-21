@@ -12,5 +12,8 @@
           "logging": false,
           "force": true
         }
+    },
+    "jwt": {
+      "secret": "12345678"
     }
 }

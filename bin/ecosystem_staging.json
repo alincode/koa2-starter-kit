@@ -1,0 +1,35 @@
+{
+  "apps": [
+    {
+      "name": "IM-HTTP-Staging",
+      "script": "server/app.js",
+      "error_file": "logs/IM-HTTP-Staging-err.log",
+      "out_file": "logs/IM-HTTP-Staging-out.log",
+      "env_staging": {
+        "NODE_ENV": "staging"
+      },
+      "env_dev": {
+        "NODE_ENV": "development"
+      },
+      "interpreter": "./node_modules/.bin/babel-node",
+      "source_map_support": true
+    }
+  ],
+  "deploy": {
+    "staging": {
+      "key": "~/xxx/xxx.pem",
+      "user": "ubuntu",
+      "host": [
+        "0.0.0.0"
+      ],
+      "ref": "origin/master",
+      "repo": "git@github.com:alincode/koa2-starter-kit.git",
+      "path": "/home/deploy/code/koa",
+      "post-deploy": "npm i && pm2 startOrRestart ./bin/ecosystem_staging.json --env staging",
+      "env": {
+        "NODE_ENV": "staging",
+        "DEBUG": "sequelize,koa,bc:*"
+      }
+    }
+  }
+}
