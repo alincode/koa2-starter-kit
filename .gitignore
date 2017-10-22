@@ -61,3 +61,4 @@ typings/
 config/production.json
 
 lib/
+package-lock.json

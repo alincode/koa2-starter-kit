@@ -12,8 +12,8 @@ describe('user', () => {
         let res = await agent.post('/api/users').send(data);
         debug('response %j', res.body);
         (res.statusCode).should.to.be.equal(200);
-        // let result = res.body;
-        // result.users[0].email.should.to.be.string;
+        let result = res.body;
+        expect(result).to.be.undefined;
     });
 
     it('update', async () => {
@@ -24,7 +24,7 @@ describe('user', () => {
         debug('response %j', res.body);
         (res.statusCode).should.to.be.equal(200);
         let result = res.body;
-        result.email.should.to.be.string;
-        result.email.should.be.equal(data.email);
+        expect(result.email).to.be.string;
+        expect(result.email).be.equal(data.email);
     });
 });

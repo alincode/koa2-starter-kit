@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 chai.use(chaiAsPromised);
 chai.should();
+const expect = require('chai').expect;
 import request from 'supertest-as-promised';
 // import sinon from 'sinon';
 require('../../server/app');
